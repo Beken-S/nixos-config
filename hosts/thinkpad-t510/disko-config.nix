@@ -4,7 +4,6 @@ let
     "ERROR: Disk device not specified!"
     diskDevice;
 in {
-      imports = [disko.nixosModules.disko];
       disko.devices = {
         disk = {
             main = {
