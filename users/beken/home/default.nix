@@ -1,5 +1,5 @@
 { config, pkgs, username, ... }: {
-    imports = [./packages]
+    imports = [ ./packages ];
 
     home = {
         inherit username;

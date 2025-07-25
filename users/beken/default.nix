@@ -1,11 +1,11 @@
 { config, pkgs, ... }:
 let
-    username="beken";
+    username = "beken";
 in {
-  imports=[(import ./home { inherit username; }) ];
+    imports = [ (import ./home { inherit username; }) ];
 
-  users.users.${username} = {
-    isNormalUser = true;
-    extraGroups = [ "wheel" "networkmanager" ];
-  };
+    users.users.${username} = {
+        isNormalUser = true;
+        extraGroups = [ "wheel" "networkmanager" ];
+    };
 }

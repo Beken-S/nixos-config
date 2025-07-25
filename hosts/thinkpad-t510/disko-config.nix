@@ -4,7 +4,7 @@ let
     "ERROR: Disk device not specified!"
     diskDevice;
 in {
-      disko.devices = {
+    disko.devices = {
         disk = {
             main = {
                 type = "disk";
