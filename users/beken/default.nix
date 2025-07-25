@@ -2,7 +2,8 @@
 let
     username = "beken";
 in {
-    imports = [ (import ./home { inherit username; }) ];
+    _module.args = { inherit username };
+    imports = [ ./home ];
 
     users.users.${username} = {
         isNormalUser = true;
