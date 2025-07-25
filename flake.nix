@@ -13,7 +13,7 @@
         };
     };
 
-    outputs = { self, nixpkgs, disko, ... }@inputs: {
+    outputs = { self, nixpkgs, disko, home-manager, ... }@inputs: {
         nixosConfigurations.thinkpad-t510 = nixpkgs.lib.nixosSystem {
             system = "x86_64-linux";
             specialArgs = { inherit inputs; };
