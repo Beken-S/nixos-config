@@ -1,9 +1,9 @@
-{ config, lib, disko, ... }: {
+{ disko, ... }: {
     disko.devices = {
         disk = {
             main = {
                 type = "disk";
-                device = config._module.args.diskDevice;
+                device = "/dev/disk/by-id/some-disk-id";
                 content = {
                     type = "gpt";
                     partitions = {
