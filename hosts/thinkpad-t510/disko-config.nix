@@ -1,12 +1,9 @@
-{ lib, disko, diskDevice ? null, ... }:
-let
-    checkedDiskDevice = if diskDevice == null then throw "ERROR: Disk device not specified!" else diskDevice;
-in {
+{ config, lib, disko, ... }: {
     disko.devices = {
         disk = {
             main = {
                 type = "disk";
-                device = checkedDiskDevice;
+                device = config._module.args.diskDevice;
                 content = {
                     type = "gpt";
                     partitions = {
