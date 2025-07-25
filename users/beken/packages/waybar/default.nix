@@ -1,5 +1,5 @@
 { config, pkgs, ... }: {
-    home-manager.programs.waybar= {
+    programs.waybar= {
         enable = true;
         settings = {
             mainBar = {

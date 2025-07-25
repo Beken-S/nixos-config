@@ -20,10 +20,6 @@
             modules = [
                 disko.nixosModules.disko
                 home-manager.nixosModules.home-manager
-                {
-                    home-manager.useGlobalPkgs = true;
-                    home-manager.useUserPackages = true;
-                }
                 ./hosts/thinkpad-t510
                 ./users/beken
             ];
