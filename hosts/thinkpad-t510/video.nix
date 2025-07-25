@@ -3,7 +3,7 @@
         enable = true;
         extraPackages = with pkgs; [
             nvidia-vaapi-driver
-            nvidia-opencl
+            ocl-icd
         ];
     };
     services.xserver.videoDrivers = [ "nvidia" ];
