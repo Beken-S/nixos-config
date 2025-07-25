@@ -1,4 +1,4 @@
-{ disko, ... }: {
+{ config, pkgs, ... }: {
     disko.devices = {
         disk = {
             main = {
