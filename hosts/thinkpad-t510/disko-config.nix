@@ -1,8 +1,6 @@
 { lib, disko, diskDevice ? null, ... }:
 let
-    checkedDiskDevice = lib.assertMsg (diskDevice != null)
-    "ERROR: Disk device not specified!"
-    diskDevice;
+    checkedDiskDevice = if diskDevice == null then throw "ERROR: Disk device not specified!" else diskDevice;
 in {
     disko.devices = {
         disk = {
