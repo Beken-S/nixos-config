@@ -1,6 +1,4 @@
-{ config, pkgs, disko, ... }: {
-    imports = [ disko.nixosModules.disko ];
-
+{ config, pkgs, ... }: {
     disko.devices = {
         disk = {
             main = {
