@@ -18,6 +18,7 @@
             system = "x86_64-linux";
             specialArgs = { inherit inputs; };
             modules = [
+                { nixpkgs.config.allowUnfree = true; }
                 disko.nixosModules.disko
                 home-manager.nixosModules.home-manager
                 ./hosts/thinkpad-t510
