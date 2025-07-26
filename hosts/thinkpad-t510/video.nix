@@ -1,7 +1,6 @@
 { config, pkgs, ... }: {
     config = {
         services.xserver.videoDrivers = [ "nvidia" ];
-        nvidia.acceptLicense = true;
         boot.blacklistedKernelModules = [ "nouveau" ];
         boot.kernelParams = [ "nvidia-drm.modeset=1" ];
 
@@ -19,5 +18,7 @@
             open = false;
             nvidiaSettings = true;
         };
+
+        nvidia.acceptLicense = true;
     };
 }
