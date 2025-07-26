@@ -18,7 +18,5 @@
             open = false;
             nvidiaSettings = true;
         };
-
-        nvidia.acceptLicense = true;
     };
 }
