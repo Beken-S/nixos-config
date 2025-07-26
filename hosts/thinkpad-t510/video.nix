@@ -1,5 +1,6 @@
 { config, pkgs, ... }: {
     config = {
+        nix.nvidia.acceptLicense = true;
         services.xserver.videoDrivers = [ "nvidia" ];
         boot.blacklistedKernelModules = [ "nouveau" ];
         boot.kernelParams = [ "nvidia-drm.modeset=1" ];
