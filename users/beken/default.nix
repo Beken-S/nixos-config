@@ -2,7 +2,7 @@
 let
     username = "beken";
 in {
-    pkgs.config.allowUnfree = true;
+    nixpkgs.config.allowUnfree = true;
 
     users.users.${username} = {
         isNormalUser = true;
