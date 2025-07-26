@@ -1,4 +1,6 @@
 { config, pkgs, ... }: {
+    pkgs.config.nvidia.acceptLicense = true;
+
     config = {
         services.xserver.videoDrivers = [ "nvidia" ];
         boot.blacklistedKernelModules = [ "nouveau" ];

@@ -13,17 +13,13 @@
         };
     };
 
-    outputs = { self, nixpkgs, disko, home-manager, ... }@inputs: {
+    outputs = { self, nixpkgs, ... }@inputs: {
+        nix.settings.experimental-features = [ "nix-command" "flakes" ];
+
         nixosConfigurations.thinkpad-t510 = nixpkgs.lib.nixosSystem {
             system = "x86_64-linux";
             specialArgs = { inherit inputs; };
             modules = [
-                {
-                    nixpkgs.config.allowUnfree = true;
-                    nixpkgs.config.nvidia.acceptLicense = true;
-                }
-                disko.nixosModules.disko
-                home-manager.nixosModules.home-manager
                 ./hosts/thinkpad-t510
                 ./users/beken
             ];
