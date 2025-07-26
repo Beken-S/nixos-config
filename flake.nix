@@ -20,7 +20,7 @@
             modules = [
                 {
                     nixpkgs.config.allowUnfree = true;
-                   # nixpkgs.config.nvidia.acceptLicense = true;
+                    nixpkgs.config.nvidia.acceptLicense = true;
                 }
                 disko.nixosModules.disko
                 home-manager.nixosModules.home-manager
