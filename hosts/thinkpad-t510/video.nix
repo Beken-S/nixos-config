@@ -15,6 +15,7 @@
         nvidiaSettings = true;
     };
 
+    config.nix.nvidia.acceptLicense = true;
     boot.blacklistedKernelModules = [ "nouveau" ];
     boot.kernelParams = [ "nvidia-drm.modeset=1" ];
 }
