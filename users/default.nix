@@ -1,8 +1,10 @@
 { config, pkgs, inputs, ... }: {
-    imports = [ inputs.home-manager.nixosModules.home-manager ];
+    imports = [
+        inputs.home-manager.nixosModules.home-manager
+        ./beken
+    ];
 
-    config.home-manager = {
-        imports = [ ./beken ];
+    home-manager = {
         useGlobalPkgs = true;
         useUserPackages = true;
     };
