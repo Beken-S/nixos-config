@@ -12,6 +12,9 @@ in {
     home-manager.users.${username} = {
         imports = [ ./packages ];
 
+        useGlobalPkgs = true;
+        useUserPackages = true;
+
         home = {
             inherit username;
             homeDirectory = "/home/${username}";
