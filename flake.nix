@@ -18,7 +18,10 @@
             system = "x86_64-linux";
             specialArgs = { inherit inputs; };
             modules = [
-                { nixpkgs.config.allowUnfree = true; }
+                {
+                    nixpkgs.config.allowUnfree = true;
+                    nixpkgs.config.nvidia.acceptLicense = true;
+                }
                 disko.nixosModules.disko
                 home-manager.nixosModules.home-manager
                 ./hosts/thinkpad-t510
