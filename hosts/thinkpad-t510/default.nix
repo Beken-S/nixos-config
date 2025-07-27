@@ -6,4 +6,9 @@
         ./video.nix
         ./audio.nix
     ];
+
+    boot.loader.grub = {
+        device = "nodev";
+        efiSupport = true;
+    };
 }
