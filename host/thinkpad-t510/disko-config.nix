@@ -3,7 +3,7 @@
         disk = {
             main = {
                 type = "disk";
-                device = "/dev/disk/by-id/ata-INTEL_SSDSC2CW180A3_CVCV203304VX180EGM";
+                device = "/dev/disk/by-id/ata-INTEL_SSDSC2CW180A3_CVCV203304VX180EGN";
                 content = {
                     type = "gpt";
                     partitions = {
