@@ -2,8 +2,6 @@
 let
     username = "beken";
 in {
-    nixpkgs.config.allowUnfree = true;
-
     users.users.${username} = {
         isNormalUser = true;
         extraGroups = [ "wheel" "networkmanager" ];

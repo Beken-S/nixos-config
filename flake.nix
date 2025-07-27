@@ -22,6 +22,7 @@
             modules = [
                 disko.nixosModules.disko
                 home-manager.nixosModules.home-manager
+                ./system
                 ./hosts/thinkpad-t510
                 ./users/beken
             ];
