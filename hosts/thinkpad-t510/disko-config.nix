@@ -5,14 +5,18 @@
                 type = "disk";
                 device = "/dev/sda";
                 content = {
-                    type = "msdos";
+                    type = "gpt";
                     partitions = {
+                        MBR = {
+                            size = "1M";
+                            type = "EF02"; # for grub MBR
+                        };
                         boot = {
-                            size = "1G";
-                            type = "83";
+                            size = "512M";
+                            type = "EF00";
                             content = {
                                 type = "filesystem";
-                                format = "ext4";
+                                format = "vfat";
                                 mountpoint = "/boot";
                                 mountOptions = [ "umask=0077" ];
                             };
