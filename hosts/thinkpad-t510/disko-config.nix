@@ -5,11 +5,11 @@
                 type = "disk";
                 device = "/dev/sda";
                 content = {
-                    type = "mbr";
+                    type = "msdos";
                     partitions = {
                         boot = {
                             size = "1G";
-                            type = "8300";
+                            type = "83";
                             content = {
                                 type = "filesystem";
                                 format = "ext4";
