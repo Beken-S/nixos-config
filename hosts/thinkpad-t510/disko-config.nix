@@ -5,14 +5,14 @@
                 type = "disk";
                 device = "/dev/sda";
                 content = {
-                    type = "gpt";
+                    type = "mbr";
                     partitions = {
                         boot = {
                             size = "1G";
-                            type = "EF02";
+                            type = "8300";
                             content = {
                                 type = "filesystem";
-                                format = "ex4";
+                                format = "ext4";
                                 mountpoint = "/boot";
                                 mountOptions = [ "umask=0077" ];
                             };
