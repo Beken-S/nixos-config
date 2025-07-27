@@ -9,10 +9,10 @@
                     partitions = {
                         boot = {
                             size = "1G";
-                            type = "EF00";
+                            type = "EF02";
                             content = {
                                 type = "filesystem";
-                                format = "vfat";
+                                format = "ex4";
                                 mountpoint = "/boot";
                                 mountOptions = [ "umask=0077" ];
                             };
