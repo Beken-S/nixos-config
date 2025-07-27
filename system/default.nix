@@ -1,6 +1,11 @@
 { config, pkgs, ... }: {
     system.stateVersion = "25.05";
 
+    time.timeZone = "Europe/Moscow";
+    i18n.defaultLocale = "ru_RU.UTF-8";
+
+    networkmanager.enable = true;
+
     services.openssh = {
         enable = true;
         settings = {

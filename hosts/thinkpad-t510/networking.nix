@@ -1,8 +1,4 @@
 { config, pkgs, ... }: {
-    networking = {
-        hostName = "omega";
-        networkmanager.enable = true;
-    };
-
+    networking.hostName = "omega";
     hardware.bluetooth.enable = true;
 }
