@@ -6,9 +6,4 @@
         ./video.nix
         ./audio.nix
     ];
-
-    boot.loader.grub = {
-        enable = true;
-        devices = [ "/dev/sda" ];
-    };
 }
