@@ -12,7 +12,7 @@
             inputs.nixpkgs.follows = "nixpkgs";
         };
 
-        inputs.alacritty-theme.url = "github:alexghr/alacritty-theme.nix";
+        alacritty-theme.url = "github:alexghr/alacritty-theme.nix";
     };
 
     outputs = { self, nixpkgs, disko, home-manager, ... }@inputs: {
