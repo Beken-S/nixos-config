@@ -1,5 +1,5 @@
 { config, pkgs, ...}: {
-    programs.allacritty = {
+    programs.alacritty = {
         enable = true;
         settings.general.import = [ pkgs.alacritty-theme.catppuccin_latte ];
     };
