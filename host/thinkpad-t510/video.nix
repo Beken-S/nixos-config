@@ -1,23 +1,14 @@
 { config, pkgs, ... }: {
-    config = {
-        nixpkgs.config.nvidia.acceptLicense = true;
-        services.xserver.videoDrivers = [ "nvidia" ];
-        boot.blacklistedKernelModules = [ "nouveau" ];
-        boot.kernelParams = [ "nvidia-drm.modeset=1" ];
+    boot.kernelModules = [ "nouveau" ];
 
-        hardware.graphics = {
-            enable = true;
-            extraPackages = with pkgs; [
-                nvidia-vaapi-driver
-                ocl-icd
-            ];
-        };
+    services.xserver.videoDrivers = [ "nouveau" ];
 
-        hardware.nvidia = {
-            package = config.boot.kernelPackages.nvidiaPackages.legacy_390;
-            modesetting.enable = true;
-            open = false;
-            nvidiaSettings = true;
-        };
+    hardware.graphics = {
+        enable = true;
+        extraPackages = with pkgs; [
+            mesa
+            mesa.drivers
+            libvdpau-va-gl
+        ];
     };
 }
