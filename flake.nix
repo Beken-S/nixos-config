@@ -11,6 +11,8 @@
             url = "github:nix-community/home-manager";
             inputs.nixpkgs.follows = "nixpkgs";
         };
+
+        inputs.alacritty-theme.url = "github:alexghr/alacritty-theme.nix";
     };
 
     outputs = { self, nixpkgs, disko, home-manager, ... }@inputs: {
@@ -22,6 +24,7 @@
             modules = [
                 disko.nixosModules.disko
                 home-manager.nixosModules.home-manager
+                ./overlays
                 ./system
                 ./host/thinkpad-t510
                 ./user/beken
