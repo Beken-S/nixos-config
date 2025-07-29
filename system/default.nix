@@ -6,8 +6,10 @@
     i18n.defaultLocale = "ru_RU.UTF-8";
 
     console = {
+        earlySetup = true;
+        font = "${pkgs.terminus_font}/share/consolefonts/ter-v16n.psf.gz";
         packages = [ pkgs.terminus_font ];
-        font = "ter-v16n";
+        keyMap = "us";
     };
 
     services.openssh = {
