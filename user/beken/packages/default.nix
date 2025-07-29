@@ -1,6 +1,6 @@
 { config, pkgs, ... }: {
     imports = [
-        ./fonts
+        ./fonts.nix
         ./git.nix
         ./niri
         ./waybar
