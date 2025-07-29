@@ -1,3 +1,3 @@
-{ config, pkgs, ...}: {
-    nixpkgs.overlays = [ alacritty-theme.overlays.default ];
+{ config, pkgs, inputs, ...}: {
+    nixpkgs.overlays = [ inputs.alacritty-theme.overlays.default ];
 }
