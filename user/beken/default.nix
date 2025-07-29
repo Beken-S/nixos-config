@@ -16,7 +16,7 @@ in {
             sessionVariables.NIXOS_OZONE_WL = "1";
             stateVersion = "25.05";
         };
-    };
 
-    programs.home-manager.enable = true;
+        programs.home-manager.enable = true;
+    };
 }
