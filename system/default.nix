@@ -2,9 +2,11 @@
     nix.settings.experimental-features = [ "nix-command" "flakes" ];
     system.stateVersion = "25.05";
 
+    environment.systemPackages = with pkgs; [ terminus_font ];
+
     time.timeZone = "Europe/Moscow";
     i18n.defaultLocale = "ru_RU.UTF-8";
-
+    console.font = "ter-v16n";
 
     services.openssh = {
         enable = true;
