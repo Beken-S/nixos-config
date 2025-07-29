@@ -7,7 +7,7 @@
 
     console = {
         earlySetup = true;
-        font = "${pkgs.terminus_font}/share/consolefonts/ter-v16n.psf.gz";
+        font = "${pkgs.terminus_font}/share/consolefonts/ter-v32n.psf.gz";
         packages = [ pkgs.terminus_font ];
         keyMap = "us";
     };
