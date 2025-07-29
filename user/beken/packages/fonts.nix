@@ -2,7 +2,7 @@
     fonts.fontconfig.enable = true;
 
     home.packages = with pkgs; [
-        croscore
+        liberation_ttf
         nerd-fonts.fira-code
     ];
 }
