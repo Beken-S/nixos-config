@@ -1,21 +1,60 @@
+spawn-at-startup "waybar"
+
 input {
     keyboard {
         xkb {
             layout "us,ru"
             options "grp:win_space_toggle,compose:ralt,ctrl:nocaps"
         }
+
+        repeat-delay 500
+        repeat-rate 30
     }
 
     touchpad {
         tap
         natural-scroll
         scroll-method "two-finger"
+        accel-speed 0.4
     }
 }
 
+cursor {
+    hide-after-inactive-ms 5000
+}
+
 layout {
-    gaps 8
-    center-focused-column "never"
+    gaps 4
+
+    background-color "#303446"
+
+    focus-ring {
+        off
+    }
+
+    border {
+        width 2
+	active-color "#81c8be"
+	inactive-color "#6c7086"
+    }
+
+    default-column-width {
+        proportion 1.0
+    }
+
+    preset-column-widths {
+        proportion 0.25
+        proportion 0.5
+        proportion 0.75
+        proportion 1.0
+    }
+
+    preset-window-heights {
+        proportion 0.25
+        proportion 0.5
+        proportion 0.75
+        proportion 1.0
+    }
 
     struts {
         left 0
@@ -25,14 +64,20 @@ layout {
     }
 }
 
-spawn-at-startup "waybar"
-
+window-rule {
+    geometry-corner-radius 6
+    clip-to-geometry true
+}
 
 clipboard {
     disable-primary
 }
 
-screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
+screenshot-path "~/pictures/screenshots/screenshot from %Y-%m-%d %H-%M-%S.png"
+
+hotkey-overlay {
+    skip-at-startup
+}
 
 binds {
     Mod+Shift+Slash { show-hotkey-overlay; }
