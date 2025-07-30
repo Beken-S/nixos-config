@@ -20,7 +20,7 @@ input {
 }
 
 cursor {
-    xcursor-theme "Catppuccin-Latte-Light-Cursors"
+    xcursor-theme "catppuccin-latte-light-cursors"
     xcursor-size 28
     hide-after-inactive-ms 5000
 }
