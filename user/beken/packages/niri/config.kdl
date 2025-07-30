@@ -20,6 +20,8 @@ input {
 }
 
 cursor {
+    xcursor-theme "Catppuccin-Latte-Light-Cursors"
+    xcursor-size 28
     hide-after-inactive-ms 5000
 }
 

@@ -7,4 +7,8 @@
         ./alacritty
         ./nvim
     ];
+
+    home.packages = with pkgs; [
+        catppuccin-cursors.latteLight
+    ];
 }
