@@ -1,7 +1,7 @@
 { config, pkgs, ... }: {
     catppuccin.waybar = {
         enable = true;
-	flavor = "frappe"
+	flavor = "frappe";
     };
 
     programs.waybar= {
@@ -10,9 +10,21 @@
             mainBar = {
                 layer = "top";
                 position = "top";
-                modules-left = [ "sway/workspaces" ];
+                modules-left = [ "niri/workspaces" ];
                 modules-center = [ "clock" ];
-                modules-right = [ "pulseaudio" "network" "battery" ];
+                modules-right = [ "niri/language" "pulseaudio" "backlight" "battery" "network" ];
+
+		"niri/workspaces" = {
+		    format = "{index}";
+	            on-click = "activate";
+		    sort-by-number = true;
+		};
+
+		"niri/language" = {
+		    format = "{short}";
+		    format-en = "en";
+		    format-ru = "ru";
+		};
             };
         };
     };
