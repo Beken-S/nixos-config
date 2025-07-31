@@ -1,4 +1,9 @@
 { config, pkgs, ... }: {
+    catppuccin.waybar = {
+        enable = true;
+	flavor = "frappe"
+    };
+
     programs.waybar= {
         enable = true;
         settings = {
