@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, catppuccin, ... }:
 let
     username = "beken";
 in {
@@ -8,7 +8,10 @@ in {
     };
 
     home-manager.users.${username} = {
-        imports = [ ./packages ];
+        imports = [
+	    catppuccin.homeModules.catppuccin
+	    ./packages
+	];
 
         home = {
             inherit username;

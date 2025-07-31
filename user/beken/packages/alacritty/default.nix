@@ -1,14 +1,18 @@
 { config, pkgs, ...}: {
+    catppuccin.alacritty = {
+        enable = true;
+        flavor = "latte";
+    };
+
     programs.alacritty = {
         enable = true;
         settings = {
-            general.import = [ pkgs.alacritty-theme.catppuccin_latte ];
-
             env.TERM = "xterm-256color";
 
             window = {
                 padding.x = 8;
                 padding.y = 8;
+		decorations = "None";
             };
 
             font = {

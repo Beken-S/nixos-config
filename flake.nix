@@ -12,13 +12,13 @@
             inputs.nixpkgs.follows = "nixpkgs";
         };
 
-        alacritty-theme.url = "github:alexghr/alacritty-theme.nix";
+        catppuccin.url = "github:catppuccin/nix";
     };
 
-    outputs = { self, nixpkgs, disko, home-manager, ... }@inputs: {
+    outputs = { self, nixpkgs, disko, home-manager, catppuccin, ... }@inputs: {
         nixosConfigurations.thinkpad-t510 = nixpkgs.lib.nixosSystem {
             system = "x86_64-linux";
-            specialArgs = { inherit inputs; };
+            specialArgs = { inherit inputs catppuccin; };
             modules = [
                 disko.nixosModules.disko
                 home-manager.nixosModules.home-manager
