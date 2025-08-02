@@ -3,7 +3,14 @@
     system.stateVersion = "25.05";
 
     time.timeZone = "Europe/Moscow";
-    i18n.defaultLocale = "ru_RU.UTF-8";
+
+    i18n = {
+        defaultLocale = "ru_RU.UTF-8";
+        extraLocales = [ "en_US.UTF-8/UTF-8" ];
+        extraLocaleSettings = {
+            LC_NUMERIC = "en_US.UTF-8";
+        };
+    };
 
     console = {
         earlySetup = true;
@@ -11,6 +18,8 @@
         packages = [ pkgs.terminus_font ];
         keyMap = "us";
     };
+
+
 
     services.openssh = {
         enable = true;
