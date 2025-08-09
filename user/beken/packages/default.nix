@@ -3,10 +3,10 @@
         ./fonts.nix
         ./cursor.nix
         ./git.nix
-        ./niri
-        ./waybar
+        ./dwl
         ./alacritty
         ./nvim
         ./browsers.nix
     ];
 }
+

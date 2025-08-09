@@ -18,7 +18,6 @@ in {
         home = {
             inherit username;
             homeDirectory = homePath;
-            sessionVariables.NIXOS_OZONE_WL = "1";
             stateVersion = "25.05";
         };
 
