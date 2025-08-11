@@ -3,6 +3,7 @@
         ./fonts.nix
         ./cursor.nix
         ./git.nix
+        ./fuzzel.nix
         ./dwl
         ./alacritty
         ./nvim
