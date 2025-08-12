@@ -1,0 +1,106 @@
+From 00840f6af3835ce0a38df240f70f8eea550ed015 Mon Sep 17 00:00:00 2001
+From: Beken Sarsenbaev <sbeken6@gmail.com>
+Date: Wed, 13 Aug 2025 13:42:37 +0300
+Subject: [PATCH] add battery-status
+
+---
+ components/battery.c | 76 +++++++++++++++++++++++++++++++++++++++++++-
+ 1 file changed, 75 insertions(+), 1 deletion(-)
+
+diff --git a/components/battery.c b/components/battery.c
+index b0e3c1a..3558528 100644
+--- a/components/battery.c
++++ b/components/battery.c
+@@ -26,6 +26,80 @@
+ 		return NULL;
+ 	}
+ 
++	const char *
++	battery_status(const char *bat)
++	{
++		static struct {
++			char *status_key;
++			char *symbol;
++		} map[] = {
++			{ "Charging-0", "󰢟" },
++			{ "Charging-1", "󰢜" },
++			{ "Charging-2", "󰂆" },
++			{ "Charging-3", "󰂇" },
++			{ "Charging-4", "󰂈" },
++			{ "Charging-5", "󰢝" },
++			{ "Charging-6", "󰂉" },
++			{ "Charging-7", "󰢞" },
++			{ "Charging-8", "󰂊" },
++			{ "Charging-9", "󰂋" },
++			{ "Charging-10", "󰂅" },
++			{ "Discharging-0", "󰂎" },
++			{ "Discharging-1", "󰁺" },
++			{ "Discharging-2", "󰁻" },
++			{ "Discharging-3", "󰁼" },
++			{ "Discharging-4", "󰁽" },
++			{ "Discharging-5", "󰁾" },
++			{ "Discharging-6", "󰁿" },
++			{ "Discharging-7", "󰂀" },
++			{ "Discharging-8", "󰂁" },
++			{ "Discharging-9", "󰂂" },
++			{ "Discharging-10", "󰁹" },
++			{ "Not charging-0", "󰂎" },
++			{ "Not charging-1", "󰁺" },
++			{ "Not charging-2", "󰁻" },
++			{ "Not charging-3", "󰁼" },
++			{ "Not charging-4", "󰁽" },
++			{ "Not charging-5", "󰁾" },
++			{ "Not charging-6", "󰁿" },
++			{ "Not charging-7", "󰂀" },
++			{ "Not charging-8", "󰂁" },
++			{ "Not charging-9", "󰂂" },
++			{ "Not charging-10", "󰁹" },
++			{ "Full", "󰁹" },
++		};
++
++		size_t i;
++		int perc;
++		char path[PATH_MAX], state[13];
++
++		if (esnprintf(path, sizeof(path),
++		              "/sys/class/power_supply/%s/capacity", bat) < 0) {
++			return NULL;
++		}
++
++		if (pscanf(path, "%d", &perc) != 1) {
++			return NULL;
++		}
++
++		if (esnprintf(path, sizeof(path),
++		              "/sys/class/power_supply/%s/status", bat) < 0) {
++			return NULL;
++		}
++
++		if (pscanf(path, "%12s", state) != 1) {
++			return NULL;
++		}
++
++		for (i = 0; i < LEN(map); i++) {
++			if (!strcmp(map[i].status_key, bprintf("%s-%d", state, perc/10))) {
++				break;
++			}
++		}
++
++		return (i == LEN(map)) ? "󰂑" : bprintf("%s %d%", map[i].symbol, perc);
++	}
++
+ 	const char *
+ 	battery_perc(const char *bat)
+ 	{
+@@ -52,7 +126,7 @@
+ 		} map[] = {
+ 			{ "Charging",    "+" },
+ 			{ "Discharging", "-" },
+-      { "Full",        "F" },
++			{ "Full",        "F" },
+ 		};
+ 		size_t i;
+ 		char path[PATH_MAX], state[12];
+-- 
+2.49.0
+

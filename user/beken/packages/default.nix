@@ -5,6 +5,7 @@
         ./git.nix
         ./fuzzel.nix
         ./dwl
+        ./slstatus
         ./alacritty
         ./nvim
         ./browsers.nix
