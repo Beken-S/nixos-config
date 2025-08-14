@@ -1,14 +1,17 @@
 { config, pkgs, ... }:
 let
-    dwl = (pkgs.dwl.overrideAttrs (old: {
-        patches = [
-            ./patches/bar.patch
+    my_dwl = (pkgs.dwl.overrideAttrs (old: {
+        patches = (old.patches or []) ++ [
             ./patches/gaps.patch
         ];
+        buildInputs = (old.buildInputs or []) ++ [];
     })).override {
         configH = ./config.h;
     };
 in {
-    home.packages = [ dwl ];
+    home.packages = with pkgs; [ 
+        my_dwl
+        wl-clipboard
+    ];
 }
 
