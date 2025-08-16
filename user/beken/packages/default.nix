@@ -5,8 +5,7 @@
         ./git.nix
         ./fuzzel.nix
         ./browsers.nix
-        ./dwl
-        ./yambar
+        ./sway
         ./alacritty
         ./nvim
     ];
