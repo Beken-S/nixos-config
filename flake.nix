@@ -37,6 +37,19 @@
                 ./user/beken
             ];
         };
+	nixosConfigurations.home-desktop = nixpkgs.lib.nixosSystem {
+            system = "x86_64-linux";
+            specialArgs = { inherit my-utils disko catppuccin wallpaper; };
+            modules = [
+                disko.nixosModules.disko
+                home-manager.nixosModules.home-manager
+                ./overlays
+                ./system
+                ./host/home-desktop
+                ./user/beken
+            ];
+        };
+
     };
 }
 
