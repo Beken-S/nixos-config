@@ -1,4 +1,4 @@
-{ config, pkgs, catppuccin, ... }:
+{ config, pkgs, my-utils, catppuccin, wallpaper, ... }:
 let
     username = "beken";
     homePath = "/home/${username}";
@@ -8,8 +8,11 @@ in {
         extraGroups = [ "wheel" "networkmanager" ];
     };
 
-    
+    security.polkit.enable = true;
+
     home-manager.users.${username} = {
+        _module.args = { inherit wallpaper my-utils; };
+
         imports = [
 	        catppuccin.homeModules.catppuccin
 	        ./packages
@@ -23,7 +26,17 @@ in {
 
         xdg.userDirs = {
             enable = true;
+            desktop = "${homePath}/desktop";
+            documents = "${homePath}/documents";
             download = "${homePath}/downloads";
+            music = "${homePath}/audio";
+            videos = "${homePath}/videos";
+            pictures = "${homePath}/pictures";
+        };
+
+        catppuccin = {
+            flavor = "latte";
+            accent = "sapphire";
         };
 
         programs.home-manager.enable = true;

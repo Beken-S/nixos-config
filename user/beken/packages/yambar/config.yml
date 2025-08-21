@@ -1,23 +1,78 @@
+palette:
+  rosewater: &rosewater dc8a78ff
+  flamingo: &flamingo dd7878ff
+  pink: &pink ea76cbff
+  mauve: &mauve 8839efff
+  red: &red d20f39ff
+  maroon: &maroon e64553ff
+  peach: &peach fe640bff
+  yellow: &yellow df8e1dff
+  green: &green 40a02bff
+  teal: &teal 179299ff
+  sky: &sky 04a5e5ff
+  sapphire: &sapphire 209fb5ff
+  blue: &blue 1e66f5ff
+  lavender: &lavender 7287fdff
+  text: &text 4c4f69ff
+  subtext1: &subtext1 5c5f77ff
+  subtext0: &subtext0 6c6f85ff
+  overlay2: &overlay2 7c7f93ff
+  overlay1: &overlay1 8c8fa1ff
+  overlay0: &overlay0 9ca0b0ff
+  surface2: &surface2 acb0beff
+  surface1: &surface1 bcc0ccff
+  surface0: &surface0 ccd0daff
+  base: &base eff1f5ff
+  mantle: &mantle e6e9efff
+  crust: &crust dce0e8ff
+
 bar:
+  location: top
+  height: 26
+  margin: 6
+  font: FiraCode Nerd Font:size=18
+  background: *base
+  foreground: *text
+
   left:
     - dwl:
-      number-of-tags: 9
-      dwl-info-filename: "~/.cache/dwl_info"
-      name-of-tags: [ 1, 2, 3, 4, 5, 6, 7, 8, 9 ]
-      content:
-        list:
-          items:
-            - map:
-              conditions:
-              # default tag
-              id == 0: {string: {text: "{layout} {title}"}}
-              selected: {string: {text: "-> {name}"}}
-              ~empty: {string: {text: "{name}"}}
-              urgent: {string: {text: "=> {name} <="}}
+        number-of-tags: 9
+        dwl-info-filename: "/home/beken/.cache/dwl_info"
+        name-of-tags: [ 1, 2, 3, 4, 5, 6, 7, 8, 9 ]
+        content:
+          list:
+            spacing: 50
+            items:
+              - map:
+                  conditions:
+                    id == 0:
+                      string:
+                        text: "{layout}"
+
+                    selected:
+                      string:
+                        text: " {name} "
+                        deco:
+                          background:
+                            color: *lavender
+                    
+                    ~empty:
+                      string:
+                        text: " {name} "
+                        deco:
+                          background:
+                            color: *red
+
+                    urgent:
+                      string:
+                        text: " {name} "
+                        deco:
+                          background:
+                            color: *red
 
   right:
     - clock:
-      date-format: "%d %b"
-      time-format: "%H:%M"
-      content:
-        string: {text: "{date} {time}"}
+        date-format: "%d %b"
+        time-format: "%H:%M"
+        content:
+          string: {text: "{date} {time}"}

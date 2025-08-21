@@ -1,8 +1,5 @@
 { config, pkgs, ...}: {
-    catppuccin.alacritty = {
-        enable = true;
-        flavor = "latte";
-    };
+    catppuccin.alacritty.enable = true;
 
     programs.alacritty = {
         enable = true;
@@ -22,3 +19,4 @@
         };
     };
 }
+

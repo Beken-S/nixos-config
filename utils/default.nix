@@ -1,6 +1,6 @@
 { lib }: 
 let
-    transparentize = import ./transparentize { inherit lib; };
+    transparentize = import ./transparentize.nix { inherit lib; };
 in 
 {
     inherit transparentize;

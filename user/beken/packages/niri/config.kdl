@@ -1,10 +1,12 @@
 spawn-at-startup "waybar"
 
 input {
+    mod-key "Alt"
+
     keyboard {
         xkb {
             layout "us,ru"
-            options "grp:win_space_toggle,compose:ralt,ctrl:nocaps"
+            options "grp:win_space_toggle,ctrl:nocaps"
         }
 
         repeat-delay 500
@@ -86,13 +88,13 @@ binds {
     Mod+Shift+Slash { show-hotkey-overlay; }
     Mod+T hotkey-overlay-title="Open a Terminal: alacritty" { spawn "alacritty"; }
 
-    XF86AudioRaiseVolume allow-when-locked=true { spawn "wpctl" "set-volume" "DEFAULT_AUDIO_SINK@" "0.1+"; }
-    XF86AudioLowerVolume allow-when-locked=true { spawn "wpctl" "set-volume" "DEFAULT_AUDIO_SINK@" "0.1-"; }
-    XF86AudioMute allow-when-locked=true { spawn "wpctl" "set-mute" "DEFAULT_AUDIO_SINK@" "toggle"; }
-    XF86AudioMicMute allow-when-locked=true { spawn "wpctl" "set-mute" "DEFAULT_AUDIO_SOURCE@" "toggle"; }
+    XF86AudioRaiseVolume allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.1+"; }
+    XF86AudioLowerVolume allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.1-"; }
+    XF86AudioMute allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SINK@" "toggle"; }
+    XF86AudioMicMute allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SOURCE@" "toggle"; }
 
-    XF86MonBrightnessUp allow-when-locked=true { spawn "brightnessctl" "--class=backlight" "set" "+10%"; }
-    XF86MonBrightnessDown allow-when-locked=true { spawn "brightnessctl" "--class=backlight" "set" "10%-"; }
+//    XF86MonBrightnessUp allow-when-locked=true { spawn "brightnessctl" "--class=backlight" "set" "+10%"; }
+//    XF86MonBrightnessDown allow-when-locked=true { spawn "brightnessctl" "--class=backlight" "set" "10%-"; }
 
     Mod+O repeat=false { toggle-overview; }
 

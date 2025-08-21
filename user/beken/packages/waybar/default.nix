@@ -143,12 +143,13 @@
                     format-disabled = "󰤮";
                     format-disconnected = " ";
                     format-ethernet = "󰈀 ";
-                    tooltip = false;
+                    tooltip-format = "{ifname}";
+                    tooltip-format-wifi = "{essid}";
                 };
 
                 pulseaudio = {
                     format = "{icon} {volume}%";
-                     format-muted = "";
+                    format-muted = "";
                     format-icons = {
                         default = [""  ""  " "];
                     };

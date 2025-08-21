@@ -12,13 +12,22 @@
             inputs.nixpkgs.follows = "nixpkgs";
         };
 
-        catppuccin.url = "github:catppuccin/nix";
+        catppuccin.url = "github:catppuccin/nix/release-25.05";
+
+        wallpaper ={
+            url = "https://upload.wikimedia.org/wikipedia/commons/5/57/Levitan_Zolotaya_Osen.jpg";
+            flake = false;
+        };
     };
 
-    outputs = { self, nixpkgs, disko, home-manager, catppuccin, ... }@inputs: {
+    outputs = { self, nixpkgs, disko, home-manager, catppuccin, wallpaper, ... }:
+    let
+        my-utils = import ./utils { inherit (nixpkgs) lib; };
+    in
+    {
         nixosConfigurations.thinkpad-t510 = nixpkgs.lib.nixosSystem {
             system = "x86_64-linux";
-            specialArgs = { inherit inputs catppuccin; };
+            specialArgs = { inherit my-utils disko catppuccin wallpaper; };
             modules = [
                 disko.nixosModules.disko
                 home-manager.nixosModules.home-manager
@@ -30,3 +39,4 @@
         };
     };
 }
+

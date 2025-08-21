@@ -1,8 +1,16 @@
-{ config, pkgs, catppuccin-wallpaper, ... }:
+{ config, pkgs, my-utils, wallpaper, ... }:
 let
     palette = import ./palette.nix;
     color = palette.${config.catppuccin.flavor};
     accentColor = color.${config.catppuccin.accent};
+
+    fonts = {
+        names = [ "FiraCode Nerd Font" ];
+        style = "Regular";
+        size = 14.0;
+    };
+
+    transparentize = my-utils.transparentize 20;
 in
 {
     home = {
@@ -19,51 +27,83 @@ in
         enable = true;
         checkConfig = false;
         config = {
-            fonts = {
-                names = [ "FiraCode Nerd Font" ];
-                style = "Regular";
-                size = 10.0;
-            }; 
+            inherit fonts;
             colors = {
-                focused = {
-                    border = accentColor;
-                    background = accentColor;
+                focused = rec {
+                    background = transparentize accentColor;
+                    border = background;
+                    childBorder = background;
+                    indicator = background;
                     text = color.base;
-                    indicator = accentColor;
-                    childBorder = accentColor;
                 };
-                unfocused = {
-                    border = color.overlay0;
-                    background = color.overlay0;
-                    text = color.subtext0;
-                    indicator = color.overlay0;
-                    childBorder = color.overlay0;
+                unfocused = rec {
+                    background = transparentize color.surface0;
+                    border = background;
+                    childBorder = background;
+                    indicator = background;
+                    text = color.text;
                 };
-                urgent = {
-                    border = color.red;
-                    background = color.red;
+                urgent = rec {
+                    background = transparentize color.red;
+                    border = background;
+                    childBorder = background;
+                    indicator = background;
                     text = color.base;
-                    indicator = color.red;
-                    childBorder = color.red;
                 };
             };
             gaps = {
-                outer = 6;
                 inner = 6;
             };
             window = {
                 border = 3;
-                #titlebar = false;
             };
             floating = {
                 border = 3;
-                #titlebar = false;
             };
             focus = {
                 followMouse = false;
             };
+            bars = [{
+                inherit fonts;
+                position = "top";
+                colors = {
+                    focusedWorkspace = {
+                        border = transparentize color.mantle;
+                        background = accentColor;
+                        text = color.base;
+                    };
+                    activeWorkspace = {
+                        border = transparentize color.mantle;
+                        background = color.surface0;
+                        text = color.text;
+                    };
+                    inactiveWorkspace = {
+                        border = transparentize color.mantle;
+                        background = transparentize color.mantle;
+                        text = color.text;
+                    };
+                    urgentWorkspace = {
+                        border = transparentize color.mantle;
+                        background = color.red;
+                        text = color.base;
+                    };
+                    bindingMode = {
+                        border = transparentize color.mantle;
+                        background = color.red;
+                        text = color.base;
+                    };
+                    background = transparentize color.mantle;
+                    separator = color.text;
+                    statusline = color.text;
+               };
+               extraConfig = ''
+                   workspace_min_width 34
+                   status_edge_padding 6
+               '';
+            }];
             terminal = "alacritty";
             modifier = "Mod1";
+            defaultWorkspace = "workspace number 1";
             input = {
                 "*" = {
                     xkb_layout = "us,ru";
@@ -72,7 +112,7 @@ in
             };
             output = {
                 "*" = {
-                    bg = "${catppuccin-wallpaper} fill";
+                    bg = "${wallpaper} fill";
                 };
             };
         };

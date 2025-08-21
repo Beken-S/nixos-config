@@ -6,11 +6,14 @@ let
         ];
         buildInputs = (old.buildInputs or []) ++ [];
     })).override {
-        configH = ./config.h;
+        configH = ''
+
+        '';
     };
 in {
     home.packages = with pkgs; [ 
         my_dwl
+        swaybg
         wl-clipboard
     ];
 }
