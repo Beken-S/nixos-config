@@ -28,20 +28,42 @@
         };
     };
 
-    outputs = { self, nixpkgs, disko, home-manager, niri, stylix, wallpaper, ... }: {
-	    nixosConfigurations.uranium = nixpkgs.lib.nixosSystem {
-            system = "x86_64-linux";
-            specialArgs = { inherit disko niri stylix wallpaper; };
-            modules = [
-                disko.nixosModules.disko
-                home-manager.nixosModules.home-manager
-                niri.nixosModules.niri
-                ./overlays
-                ./system
-                ./host/uranium
-                ./user/beken
-            ];
+    outputs = { self, nixpkgs, disko, home-manager, niri, stylix, wallpaper, ... }: let 
+        mkConfig = { name, system, user, fullName, email } : {
+            inherit name;
+            value = (nixpkgs.lib.nixosSystem {
+                inherit system;
+                specialArgs = {
+                    inherit disko niri stylix wallpaper;
+                    hostName = name;
+                    userName = user;
+                    fullUserName = fullName;
+                    userEmail = email;
+                };
+                modules = [
+                    disko.nixosModules.disko
+                    home-manager.nixosModules.home-manager
+                    niri.nixosModules.niri
+                    ./overlays
+                    ./system
+                    ./host/${name}
+                    ./user/${user}
+                ];
+            });
         };
-    };
+
+        hosts = [
+            {
+                name = "uranium";
+                system = "x86_64-linux";
+                user = "beken";
+                fullName = "Beken Sarsenbaev";
+                email = "sbeken6@gmail.com";
+            }
+        ];
+
+        nixosConfigurations = builtins.listToAttrs (map mkConfig hosts);
+
+    in { inherit nixosConfigurations; };
 }
 

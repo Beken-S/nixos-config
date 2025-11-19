@@ -1,8 +1,8 @@
-{ config, pkgs, ... }: {
+{ config, pkgs, fullUserName, userEmail, ... }: {
     programs.git = {
         enable = true;
-        userName = "BekenSarsenbaev";
-        userEmail = "sbeken6@gmail.com";
+        userName = fullUserName;
+        inherit userEmail;
         aliases = {
             history  = ''log --graph --date=format:"%d.%m.%y" --format=format:"%C(bold yellow)%h%C(reset) - %s%C(red bold)%d%C(reset) %C(brightblack italic)-- %an %ar%C(reset)%n" --all'';
         };

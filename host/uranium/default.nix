@@ -1,7 +1,7 @@
-{ config, pkgs, ... }: {
+{ config, pkgs, hostName, ... }: {
     imports = [ ./disko-config.nix ];
 
-    networking.hostName = "uranium";
+    networking.hostName = hostName;
 
     boot = {
         initrd.kernelModules = [ "i915" ];

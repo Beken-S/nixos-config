@@ -1,10 +1,19 @@
-{ config, pkgs, my-utils, niri, stylix, wallpaper, ... }:
-let
-    username = "beken";
-    homePath = "/home/${username}";
+{
+    config,
+    pkgs,
+    hostName,
+    userName,
+    fullUserName,
+    userEmail,
+    niri,
+    stylix,
+    wallpaper,
+    ...
+}: let
+    homePath = "/home/${userName}";
 in {
 
-    users.users.${username} = {
+    users.users.${userName} = {
         isNormalUser = true;
         extraGroups = [
             "wheel"
@@ -14,7 +23,11 @@ in {
     };
 
     home-manager = {
-        users.${username} = {
+        extraSpecialArgs = {
+            inherit hostName userName fullUserName userEmail;
+        };
+
+        users.${userName} = {
             imports = [
                 stylix.homeModules.stylix
                 niri.homeModules.stylix
@@ -22,7 +35,7 @@ in {
             ];
 
             home = {
-                inherit username;
+                username = userName;
                 homeDirectory = homePath;
                 stateVersion = "25.05";
             };

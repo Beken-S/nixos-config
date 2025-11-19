@@ -1,4 +1,4 @@
-{ config, pkgs, niri, lib, wallpaper, ... }: {
+{ config, lib, pkgs, ... }: {
     system.stateVersion = "25.05";
 
     nix = {
