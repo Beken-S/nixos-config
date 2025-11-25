@@ -1,18 +1,18 @@
-{ config, pkgs, ... }: {
-    programs.yazi = {
-		enable = true;
-		enableBashIntegration = true;
-		shellWrapperName = "y";
+{ ... }:
+{
+  programs.yazi = {
+    enable = true;
+    enableBashIntegration = true;
+    shellWrapperName = "y";
 
-		settings = {
-			mgr = {
-				show_hidden = true;
-			};
-			preview = {
-				max_width = 1000;
-				max_height = 1000;
-			};
-		};
-	};
+    settings = {
+      mgr = {
+        show_hidden = true;
+      };
+      preview = {
+        max_width = 1000;
+        max_height = 1000;
+      };
+    };
+  };
 }
-

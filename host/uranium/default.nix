@@ -1,20 +1,24 @@
-{ config, pkgs, hostName, ... }: {
-    imports = [ ./disko-config.nix ];
+{
+  pkgs,
+  hostName,
+  ...
+}:
+{
+  imports = [ ./disko-config.nix ];
 
-    networking.hostName = hostName;
+  networking.hostName = hostName;
 
-    boot = {
-        initrd.kernelModules = [ "i915" ];
-        kernelModules = [ "nouveau" ];
-    };
+  boot = {
+    initrd.kernelModules = [ "i915" ];
+    kernelModules = [ "nouveau" ];
+  };
 
-    hardware.cpu.intel.updateMicrocode = true;
+  hardware.cpu.intel.updateMicrocode = true;
 
-    hardware.graphics.extraPackages = with pkgs; [
-        vaapiIntel
-        vaapiVdpau
-    ];
+  hardware.graphics.extraPackages = with pkgs; [
+    vaapiIntel
+    vaapiVdpau
+  ];
 
-    services.xserver.videoDrivers = [ "nouveau" ];
+  services.xserver.videoDrivers = [ "nouveau" ];
 }
-
