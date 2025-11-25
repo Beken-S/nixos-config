@@ -1,4 +1,4 @@
-{ ... }:
+{ pkgs, ... }:
 {
   imports = [
     ./niri.nix
@@ -15,5 +15,9 @@
     ./git.nix
     ./browsers.nix
     ./media.nix
+  ];
+
+  home.packages = with pkgs; [
+    duf
   ];
 }
