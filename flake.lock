@@ -295,12 +295,38 @@
         "type": "github"
       }
     },
+    "nvim-spell-ru-utf8-dictionary": {
+      "flake": false,
+      "locked": {
+        "narHash": "sha256-+qR5FsmYK/332YyxfyjqQ6zHaygCoTtM1p2Okza4YLY=",
+        "type": "file",
+        "url": "https://ftp.nluug.nl/pub/vim/runtime/spell/ru.utf-8.spl"
+      },
+      "original": {
+        "type": "file",
+        "url": "https://ftp.nluug.nl/pub/vim/runtime/spell/ru.utf-8.spl"
+      }
+    },
+    "nvim-spell-ru-utf8-suggestions": {
+      "flake": false,
+      "locked": {
+        "narHash": "sha256-yzT/KlhbkxouHfq48JtAMnnB+htAERv8fnGp2PKQFJU=",
+        "type": "file",
+        "url": "https://ftp.nluug.nl/pub/vim/runtime/spell/ru.utf-8.sug"
+      },
+      "original": {
+        "type": "file",
+        "url": "https://ftp.nluug.nl/pub/vim/runtime/spell/ru.utf-8.sug"
+      }
+    },
     "root": {
       "inputs": {
         "disko": "disko",
         "home-manager": "home-manager",
         "niri": "niri",
         "nixpkgs": "nixpkgs",
+        "nvim-spell-ru-utf8-dictionary": "nvim-spell-ru-utf8-dictionary",
+        "nvim-spell-ru-utf8-suggestions": "nvim-spell-ru-utf8-suggestions",
         "stylix": "stylix",
         "wallpaper": "wallpaper"
       }

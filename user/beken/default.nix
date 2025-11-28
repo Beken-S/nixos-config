@@ -7,6 +7,8 @@
   niri,
   stylix,
   wallpaper,
+  nvim-spell-ru-utf8-dictionary,
+  nvim-spell-ru-utf8-suggestions,
   ...
 }:
 let
@@ -30,6 +32,8 @@ in
         userName
         fullUserName
         userEmail
+        nvim-spell-ru-utf8-dictionary
+        nvim-spell-ru-utf8-suggestions
         ;
     };
 
