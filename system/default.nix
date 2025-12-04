@@ -133,7 +133,6 @@
         80
         443
       ];
-      allowedUDPPorts = [ 53 ];
       allowPing = false;
     };
   };
