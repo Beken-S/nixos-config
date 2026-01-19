@@ -132,6 +132,10 @@
         22
         80
         443
+        52448
+      ];
+      allowedUDPPorts = [
+        52448
       ];
       allowPing = false;
     };
