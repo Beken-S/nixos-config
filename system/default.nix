@@ -4,7 +4,7 @@
   ...
 }:
 {
-  system.stateVersion = "25.05";
+  system.stateVersion = "25.11";
 
   nix = {
     settings = {
@@ -17,7 +17,7 @@
     gc = {
       automatic = true;
       dates = "weekly";
-      options = "--delete-older-than 1w";
+      options = "--delete-older-than 7d";
     };
   };
 
@@ -96,7 +96,7 @@
         default_session = {
           command =
             let
-              tuigreet = lib.getExe pkgs.greetd.tuigreet;
+              tuigreet = lib.getExe pkgs.tuigreet;
               niri-session = lib.getExe' pkgs.niri "niri-session";
             in
             "${tuigreet} --time --window-padding 1 --cmd ${niri-session}";

@@ -16,8 +16,8 @@
   hardware.cpu.intel.updateMicrocode = true;
 
   hardware.graphics.extraPackages = with pkgs; [
-    vaapiIntel
-    vaapiVdpau
+    intel-vaapi-driver
+    libva-vdpau-driver
   ];
 
   services.xserver.videoDrivers = [ "nouveau" ];
