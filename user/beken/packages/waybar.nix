@@ -166,8 +166,9 @@
             };
             modules = [
               "custom/power"
-              "custom/quit"
+              "idle_inhibitor"
               "custom/lock"
+              "custom/quit"
               "custom/suspend"
               "custom/reboot"
             ];
@@ -201,6 +202,16 @@
             format = "󰤄";
             on-click = "systemctl suspend";
             tooltip-format = "Suspend";
+          };
+
+          "idle_inhibitor" = {
+            format = "{icon}";
+            format-icons = {
+              activated = "󰒳";
+              deactivated = "󰒲";
+            };
+            tooltip-format-activated = "Inhibitor {status}";
+            tooltip-format-deactivated = "Inhibitor {status}";
           };
 
           "custom/divider" = {
@@ -276,7 +287,8 @@
         #custom-lock,
         #custom-reboot,
         #custom-power,
-        #custom-suspend {
+        #custom-suspend,
+        #idle_inhibitor {
             padding: 0.1em 0.6em;
             min-width: 1em;
         }
@@ -288,7 +300,8 @@
         #custom-lock:hover,
         #custom-reboot:hover,
         #custom-power:hover,
-        #custom-suspend:hover {
+        #custom-suspend:hover,
+        #idle_inhibitor:hover {
             background-color: ${color.base02};
         }
       '';
