@@ -80,6 +80,7 @@
     };
 
     bluetooth.enable = true;
+    opentabletdriver.enable = true;
   };
 
   security = {
