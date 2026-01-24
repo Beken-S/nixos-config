@@ -15,7 +15,6 @@
     ./git.nix
     ./browsers.nix
     ./media.nix
-    ./anki.nix
   ];
 
   home.packages = with pkgs; [
