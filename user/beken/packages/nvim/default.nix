@@ -2,8 +2,6 @@
   pkgs,
   hostName,
   userName,
-  nvim-spell-ru-utf8-dictionary,
-  nvim-spell-ru-utf8-suggestions,
   ...
 }:
 {
@@ -21,6 +19,7 @@
       nixfmt-rfc-style
       lua-language-server
       stylua
+      codebook
     ];
     extraLuaConfig = ''
       ${builtins.readFile ./lua/core.lua}
@@ -28,16 +27,7 @@
     '';
   };
 
-  xdg.configFile."nvim/spell/ru.utf-8.spl".source = nvim-spell-ru-utf8-dictionary;
-  xdg.configFile."nvim/spell/ru.utf-8.sug".source = nvim-spell-ru-utf8-suggestions;
-  xdg.configFile."nvim/queries/lua/highlights.scm".text = ''
-    ; extends
-    (string) @spell
-    (identifier) @spell
-  '';
-  xdg.configFile."nvim/queries/nix/highlights.scm".text = ''
-    ; extends
-    (identifier) @spell
-    (string_fragment) @spell
+  xdg.configFile."codebook/codebook.toml".text = ''
+    dictionaries = ["en_us", "ru"]
   '';
 }

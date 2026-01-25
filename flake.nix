@@ -26,16 +26,6 @@
       url = "https://clck.ru/3NnARR";
       flake = false;
     };
-
-    nvim-spell-ru-utf8-dictionary = {
-      url = "https://ftp.nluug.nl/pub/vim/runtime/spell/ru.utf-8.spl";
-      flake = false;
-    };
-
-    nvim-spell-ru-utf8-suggestions = {
-      url = "https://ftp.nluug.nl/pub/vim/runtime/spell/ru.utf-8.sug";
-      flake = false;
-    };
   };
 
   outputs =
@@ -46,8 +36,6 @@
       niri,
       stylix,
       wallpaper,
-      nvim-spell-ru-utf8-dictionary,
-      nvim-spell-ru-utf8-suggestions,
       ...
     }:
     let
@@ -70,8 +58,6 @@
                   niri
                   stylix
                   wallpaper
-                  nvim-spell-ru-utf8-dictionary
-                  nvim-spell-ru-utf8-suggestions
                   ;
                 hostName = name;
                 userName = user;

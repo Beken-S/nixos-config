@@ -7,8 +7,9 @@
   inherit plugin;
   type = "lua";
   config = ''
-    ${import ./nixd.nix { inherit hostName userName; }}
     ${builtins.readFile ./lua-ls.lua}
+    ${import ./nixd.nix { inherit hostName userName; }}
+    vim.lsp.enable("codebook")
 
     vim.api.nvim_create_autocmd("LspAttach", {
         group = vim.api.nvim_create_augroup("UserLspConfig", {}),

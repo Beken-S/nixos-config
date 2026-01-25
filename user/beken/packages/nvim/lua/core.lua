@@ -47,9 +47,3 @@ vim.opt.termguicolors = true
 
 -- Копирование и вставка работают через системный буфер обмена
 vim.opt.clipboard = "unnamedplus"
-
--- Орфография
-vim.opt.spell = true
-vim.opt.spelllang = { "en_us", "ru_ru" }
-vim.opt.spellsuggest = "best,9"
-vim.opt.spelloptions = "camel"
