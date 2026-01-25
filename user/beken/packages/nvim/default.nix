@@ -20,6 +20,7 @@
       lua-language-server
       stylua
       codebook
+      markdown-oxide
     ];
     extraLuaConfig = ''
       ${builtins.readFile ./lua/core.lua}

@@ -8,6 +8,7 @@
   type = "lua";
   config = ''
     ${builtins.readFile ./lua-ls.lua}
+    ${builtins.readFile ./markdown_oxide.lua}
     ${import ./nixd.nix { inherit hostName userName; }}
     vim.lsp.enable("codebook")
 
