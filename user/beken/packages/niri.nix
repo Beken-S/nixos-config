@@ -2,6 +2,7 @@
 {
   home.packages = with pkgs; [
     nautilus
+    xwayland-satellite
   ];
 
   services.swww.enable = true;

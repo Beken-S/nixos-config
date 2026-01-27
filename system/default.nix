@@ -143,11 +143,6 @@
   };
 
   environment = {
-    variables = {
-      NIXOS_OZONE_WL = "1";
-      GSK_RENDERER = "ngl";
-    };
-
     systemPackages = with pkgs; [
       wl-clipboard
       russian-tls-certificates
@@ -162,6 +157,7 @@
   };
 
   programs = {
+    xwayland.enable = true;
     niri.enable = true;
   };
 }
