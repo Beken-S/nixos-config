@@ -42,6 +42,9 @@ vim.opt.wrap = false
 -- Минимальное количество строк выше/ниже курсора при прокрутке
 vim.opt.scrolloff = 8
 
+-- Минимальное количество символов слева/справа от курсора при прокрутке
+vim.opt.sidescrolloff = 8
+
 -- Поддержка True Color
 vim.opt.termguicolors = true
 
