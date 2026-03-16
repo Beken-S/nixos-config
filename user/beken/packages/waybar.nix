@@ -200,7 +200,7 @@
 
           "custom/suspend" = {
             format = "󰤄";
-            on-click = "systemctl suspend";
+            on-click = "swaylock && systemctl suspend";
             tooltip-format = "Suspend";
           };
 
