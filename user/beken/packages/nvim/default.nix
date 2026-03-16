@@ -23,6 +23,7 @@
       markdown-oxide
     ];
     extraLuaConfig = ''
+      ${builtins.readFile ./lua/langmapper.lua}
       ${builtins.readFile ./lua/core.lua}
       ${builtins.readFile ./lua/keymaps.lua}
     '';

@@ -5,6 +5,7 @@
 }:
 with pkgs.vimPlugins;
 [
+  langmapper-nvim
   (import ./catppuccin-nvim.nix { plugin = catppuccin-nvim; })
   (import ./gitsigns-nvim.nix { plugin = gitsigns-nvim; })
   (import ./mini-files.nix { plugin = mini-files; })
