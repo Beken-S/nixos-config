@@ -1,9 +1,6 @@
 -- Leader клавиша
 vim.g.mapleader = " "
 
--- Mini-files
-vim.keymap.set("n", "<Leader>t", ":lua MiniFiles.open()<CR>")
-
 -- Навигация между окнами
 vim.keymap.set("n", "<C-j>", ":wincmd j<CR>")
 vim.keymap.set("n", "<C-k>", ":wincmd k<CR>")
