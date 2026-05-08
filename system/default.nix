@@ -122,6 +122,8 @@
       pulse.enable = true;
       wireplumber.enable = true;
     };
+
+    flatpak.enable = true;
   };
 
   networking = {

@@ -4,6 +4,7 @@
   userName,
   fullUserName,
   userEmail,
+  nix-flatpak,
   niri,
   stylix,
   wallpaper,
@@ -35,6 +36,7 @@ in
 
     users.${userName} = {
       imports = [
+        nix-flatpak.homeManagerModules.nix-flatpak
         stylix.homeModules.stylix
         niri.homeModules.stylix
         ./packages

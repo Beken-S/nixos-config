@@ -21,4 +21,9 @@
     duf
     qbittorrent
   ];
+
+  services.flatpak = {
+    update.auto.enable = true;
+    packages = [ ];
+  };
 }

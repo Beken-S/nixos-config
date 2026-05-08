@@ -2,6 +2,8 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-25.11";
 
+    nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=latest";
+
     disko = {
       url = "github:nix-community/disko/latest";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -31,6 +33,7 @@
   outputs =
     {
       nixpkgs,
+      nix-flatpak,
       disko,
       home-manager,
       niri,
@@ -54,6 +57,7 @@
               inherit system;
               specialArgs = {
                 inherit
+                  nix-flatpak
                   disko
                   niri
                   stylix
