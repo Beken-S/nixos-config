@@ -123,6 +123,8 @@
       wireplumber.enable = true;
     };
 
+    ratbagd.enable = true;
+
     flatpak.enable = true;
   };
 
