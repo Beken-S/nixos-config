@@ -13,4 +13,26 @@ vim.opt.langmap = vim.fn.join({
     escape(ru) .. ";" .. escape(en),
 }, ",")
 
-require("langmapper").setup()
+require("langmapper").setup({
+    default_layout = [[`1234567890-=qwertyuiop[]\asdfghjkl;'zxcvbnm,./~!@#$%^&*()_+qwertyuiop{}|asdfghjkl:"zxcvbnm<>?]],
+    layouts = {
+        ru = {
+            id = "Russian",
+            layout = [[ё1234567890-=йцукенгшщзхъ\фывапролджэячсмитьбю.Ё!"№;%:?*()_+ЙЦУКЕНГШЩЗХЪ/ФЫВАПРОЛДЖЭЯЧСМИТЬБЮ,]],
+        },
+    },
+    os = {
+        Linux = {
+            get_current_layout_id = function()
+                local json = vim.fn.system("niri msg --json keyboard-layouts")
+                local ok, layouts = pcall(vim.json.decode, json)
+
+                if not ok or layouts.current_idx == nil then
+                    return "English (US)"
+                end
+
+                return layouts.names[layouts.current_idx + 1]
+            end,
+        },
+    },
+})

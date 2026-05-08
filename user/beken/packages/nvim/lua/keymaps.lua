@@ -8,8 +8,8 @@ vim.keymap.set("n", "<C-h>", ":wincmd h<CR>")
 vim.keymap.set("n", "<C-l>", ":wincmd l<CR>")
 
 -- Разделение окна
-vim.keymap.set("n", "|", ":vsplit<CR>")
-vim.keymap.set("n", "\\", ":split<CR>")
+vim.keymap.set("n", "<Bslash>", ":vsplit<CR>")
+vim.keymap.set("n", "<Bar>", ":split<CR>")
 
 -- Вкладки
 vim.keymap.set("n", "<Tab>", ":BufferLineCycleNext<CR>")
