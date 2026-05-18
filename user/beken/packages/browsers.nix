@@ -12,6 +12,7 @@
     firefox = {
       enable = true;
       policies = {
+        DisableEncryptedClientHello = true;
         DefaultDownloadDirectory = "${config.xdg.userDirs.download}";
       };
     };
