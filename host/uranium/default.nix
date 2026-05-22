@@ -1,4 +1,5 @@
 {
+  config,
   pkgs,
   hostName,
   ...
@@ -8,17 +9,33 @@
 
   networking.hostName = hostName;
 
-  boot = {
-    initrd.kernelModules = [ "i915" ];
-    kernelModules = [ "nouveau" ];
+  boot.initrd.kernelModules = [ "i915" ];
+
+  nixpkgs.config.nvidia.acceptLicense = true;
+
+  hardware = {
+    cpu.intel.updateMicrocode = true;
+    nvidia = {
+      package = config.boot.kernelPackages.nvidiaPackages.legacy_470;
+      modesetting.enable = true;
+      prime = {
+        offload = {
+          enable = true;
+          enableOffloadCmd = true;
+        };
+        intelBusId = "PCI:0:2:0";
+        nvidiaBusId = "PCI:1:0:0";
+      };
+    };
+    graphics.extraPackages = with pkgs; [ intel-vaapi-driver ];
   };
 
-  hardware.cpu.intel.updateMicrocode = true;
-
-  hardware.graphics.extraPackages = with pkgs; [
-    intel-vaapi-driver
-    libva-vdpau-driver
+  services.xserver.videoDrivers = [
+    "modesetting"
+    "nvidia"
   ];
 
-  services.xserver.videoDrivers = [ "nouveau" ];
+  environment.sessionVariables = {
+    LIBVA_DRIVER_NAME = "i965";
+  };
 }

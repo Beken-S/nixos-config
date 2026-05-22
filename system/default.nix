@@ -73,10 +73,8 @@
 
     graphics = {
       enable = true;
-      extraPackages = with pkgs; [
-        mesa
-        libvdpau-va-gl
-      ];
+      enable32Bit = true;
+      extraPackages = with pkgs; [ mesa ];
     };
 
     bluetooth.enable = true;
