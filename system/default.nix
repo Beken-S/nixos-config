@@ -152,6 +152,11 @@
     ];
   };
 
+  virtualisation = {
+    spiceUSBRedirection.enable = true;
+    libvirtd.enable = true;
+  };
+
   home-manager = {
     useGlobalPkgs = true;
   };

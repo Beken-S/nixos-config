@@ -21,6 +21,7 @@
     piper
     duf
     qbittorrent
+    quickemu
   ];
 
   services.flatpak = {

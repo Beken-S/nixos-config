@@ -21,6 +21,7 @@ in
       "wheel"
       "networkmanager"
       "video"
+      "libvirtd"
     ];
   };
 
