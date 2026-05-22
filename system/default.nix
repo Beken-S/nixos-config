@@ -152,8 +152,6 @@
       russian-tls-certificates
       tela-circle-icon-theme
     ];
-
-    pathsToLink = [ "/share/zsh" ];
   };
 
   home-manager = {
