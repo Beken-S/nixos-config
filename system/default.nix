@@ -110,6 +110,8 @@
       settings = {
         PermitRootLogin = "no";
         PasswordAuthentication = false;
+        X11Forwarding = false;
+        AllowAgentForwarding = false;
       };
     };
 
