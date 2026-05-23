@@ -33,6 +33,7 @@
       "quiet"
       "splash"
       "udev.log_priority=3"
+      "btusb.enable_autosuspend=0"
     ];
     supportedFilesystems = [ "ntfs" ];
   };
