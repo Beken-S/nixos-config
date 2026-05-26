@@ -5,7 +5,10 @@
   ...
 }:
 {
-  imports = [ ./disko-config.nix ];
+  imports = [
+    ./disko-config.nix
+    ./smb-server.nix
+  ];
 
   networking.hostName = hostName;
 
@@ -37,5 +40,14 @@
 
   environment.sessionVariables = {
     LIBVA_DRIVER_NAME = "i965";
+  };
+
+  myNas = {
+    enable = true;
+    name = "Files";
+    device = {
+      uuid = "A88CDF9B8CDF627C";
+      fsType = "ntfs3";
+    };
   };
 }

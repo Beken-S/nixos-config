@@ -7,5 +7,8 @@
     (final: prev: {
       proton-cachyos = prev.callPackage ../pkgs/proton-cachyos { };
     })
+    (final: prev: {
+      check-disk-activity = prev.callPackage ../pkgs/check-disk-activity { };
+    })
   ];
 }

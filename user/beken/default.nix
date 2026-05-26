@@ -1,4 +1,5 @@
 {
+  config,
   pkgs,
   hostName,
   userName,
@@ -12,6 +13,8 @@
 }:
 let
   homePath = "/home/${userName}";
+  nasDevice = config.myNas.device.uuid;
+  nasDeviceMountPoint = config.myNas.device.mountPoint;
 in
 {
 
@@ -22,6 +25,7 @@ in
       "networkmanager"
       "video"
       "libvirtd"
+      "smb-share"
     ];
   };
 
@@ -32,6 +36,8 @@ in
         userName
         fullUserName
         userEmail
+        nasDevice
+        nasDeviceMountPoint
         ;
     };
 
@@ -40,7 +46,7 @@ in
         nix-flatpak.homeManagerModules.nix-flatpak
         stylix.homeModules.stylix
         niri.homeModules.stylix
-        ./packages
+        ./modules
       ];
 
       home = {

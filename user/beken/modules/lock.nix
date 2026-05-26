@@ -2,6 +2,7 @@
   config,
   pkgs,
   lib,
+  nasDevice,
   ...
 }:
 {
@@ -110,6 +111,7 @@
       niri = lib.getExe pkgs.niri;
       swaylock = lib.getExe config.programs.swaylock.package;
       pidof = lib.getExe' pkgs.procps "pidof";
+      check-disk-activity = lib.getExe pkgs.check-disk-activity;
       systemctl = config.systemd.user.systemctlPath;
     in
     {
@@ -131,7 +133,7 @@
           }
           {
             timeout = 900;
-            command = "${pidof} swaylock && ${systemctl} suspend";
+            command = "${pidof} swaylock && ! ${check-disk-activity} ${nasDevice} && ${systemctl} suspend";
           }
         ];
 

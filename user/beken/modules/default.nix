@@ -1,4 +1,9 @@
-{ pkgs, ... }:
+{
+  config,
+  pkgs,
+  nasDeviceMountPoint,
+  ...
+}:
 {
   imports = [
     ./niri.nix
@@ -28,4 +33,9 @@
     update.auto.enable = true;
     packages = [ ];
   };
+
+  home.file."nas" = {
+    source = config.lib.file.mkOutOfStoreSymlink nasDeviceMountPoint;
+  };
+
 }
