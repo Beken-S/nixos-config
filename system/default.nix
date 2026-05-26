@@ -171,9 +171,14 @@
     gamemode.enable = true;
     steam = {
       enable = true;
+      protontricks.enable = true;
       remotePlay.openFirewall = true;
       dedicatedServer.openFirewall = true;
       localNetworkGameTransfers.openFirewall = true;
+      extraCompatPackages = with pkgs; [
+        proton-cachyos
+        proton-ge-bin
+      ];
     };
   };
 }
