@@ -84,6 +84,7 @@
 
   security = {
     polkit.enable = true;
+    rtkit.enable = true;
     pki.certificateFiles = [
       "${pkgs.russian-tls-certificates}/share/russian-ca-bundle.pem"
     ];
