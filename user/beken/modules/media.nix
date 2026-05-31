@@ -11,15 +11,11 @@
     mpv = with pkgs; {
       enable = true;
 
-      package = (
-        mpv-unwrapped.wrapper {
-          scripts = with mpvScripts; [
-            mpv-osc-modern
-          ];
-
-          mpv = mpv-unwrapped;
-        }
-      );
+      package = mpv.override {
+        scripts = with mpvScripts; [
+          mpv-osc-modern
+        ];
+      };
 
       config = {
         osc = "no";
@@ -31,7 +27,7 @@
           profile-restore = "copy-equal";
           title = " ";
           keepaspect = "no";
-          background = "1";
+          background = "none";
         };
       };
     };

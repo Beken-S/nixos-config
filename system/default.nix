@@ -4,10 +4,14 @@
   ...
 }:
 {
-  system.stateVersion = "25.11";
+  system.stateVersion = "26.05";
 
   nix = {
     settings = {
+      substituters = [
+        "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/store"
+        "https://cache.nixos.org/"
+      ];
       experimental-features = [
         "nix-command"
         "flakes"
@@ -26,7 +30,6 @@
   time.timeZone = "Europe/Moscow";
 
   boot = {
-    plymouth.enable = true;
     initrd.verbose = false;
     consoleLogLevel = 0;
     kernelParams = [
@@ -39,7 +42,6 @@
   };
 
   console = with pkgs; {
-    earlySetup = true;
     colors = [
       "2d2d2d"
       "ff7f7b"
@@ -58,7 +60,7 @@
       "bed6ff"
       "e0e0e0"
     ];
-    font = "${terminus_font}/share/consolefonts/ter-v20n.psf.gz";
+    font = "ter-v20n";
     packages = [ terminus_font ];
     keyMap = "us";
   };

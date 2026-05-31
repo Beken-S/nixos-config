@@ -5,7 +5,7 @@
     xwayland-satellite
   ];
 
-  services.swww.enable = true;
+  services.awww.enable = true;
 
   programs.niri = {
     settings = {
@@ -17,7 +17,7 @@
         { command = [ "waybar" ]; }
         {
           command = [
-            "swww"
+            "awww"
             "img"
             "${config.stylix.image}"
           ];
@@ -106,14 +106,13 @@
 
       layer-rules = [
         {
-          matches = [ { namespace = "^swww-daemon$"; } ];
+          matches = [ { namespace = "^awww-daemon$"; } ];
           place-within-backdrop = true;
         }
         {
           matches = [ { namespace = "^notifications$"; } ];
           block-out-from = "screencast";
         }
-
       ];
 
       overview = {

@@ -52,7 +52,7 @@ in
       home = {
         username = userName;
         homeDirectory = homePath;
-        stateVersion = "25.11";
+        stateVersion = "26.05";
       };
 
       xdg.userDirs = {

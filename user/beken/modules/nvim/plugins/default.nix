@@ -26,7 +26,7 @@ with pkgs.vimPlugins;
   cmp-path
   cmp-cmdline
   (import ./nvim-cmp.nix { plugin = nvim-cmp; })
-  (import ./nvim-treesitter.nix { plugin = nvim-treesitter.withAllGrammars; })
+  nvim-treesitter.withAllGrammars
   (import ./trouble-nvim.nix { plugin = trouble-nvim; })
   (import ./conform-nvim.nix { plugin = conform-nvim; })
   (import ./nvim-lint.nix { plugin = nvim-lint; })

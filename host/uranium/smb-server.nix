@@ -112,6 +112,7 @@ in
 
     fileSystems."${cfg.share.path}" = {
       device = cfg.device.mountPoint;
+      fsType = "none";
       options = [
         "bind"
         "nofail"
