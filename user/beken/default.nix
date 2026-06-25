@@ -23,6 +23,7 @@ in
     extraGroups = [
       "wheel"
       "networkmanager"
+      "audio"
       "video"
       "libvirtd"
       "smb-share"

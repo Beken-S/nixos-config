@@ -12,7 +12,12 @@
 
   networking.hostName = hostName;
 
-  boot.initrd.kernelModules = [ "i915" ];
+  boot = {
+    initrd.kernelModules = [ "i915" ];
+    extraModprobeConfig = ''
+      options snd_hda_intel model=no-front-hp
+    '';
+  };
 
   nixpkgs.config.nvidia.acceptLicense = true;
 
